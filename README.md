@@ -43,7 +43,7 @@ rgb(205/255, 0/255, 0/255)
 ```
 
 **How did I get the colored boxes to appear in the table above?**
-I used the following code! (Only the first color, red3, is shown.
+I used the following code! (Only the first color, red3, is shown. To get a different color, you'd need to replace the HEX color code in both places where it occurs in the code below.)
 ```md
 ![ #cd0000](https://via.placeholder.com/15/cd0000/000000?text=+)
 ```
