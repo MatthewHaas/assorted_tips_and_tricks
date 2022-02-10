@@ -2,7 +2,7 @@
 
 
 ## Directory
-1. [Converting named R colors to RGB (red, green, blue) values](#-Converting-named-R-colors-to-RGB-values)
+1. [Converting named R colors to RGB values](#-Converting-named-R-colors-to-RGB-values)
 
 ## Converting named R colors to RGB values
 If you want to figure out the RGB (red, green, blue) value of a named R color such as those found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) or through the `colors()` R function (works in RStudio), you can use the `col2rgb()` function. For example, I used this function so that I could perfectly re-create the colors from the PCA plot in the genetic diversity project to make the map of Northern Wild Rice (NWR) collection sites map in Python.<br>
