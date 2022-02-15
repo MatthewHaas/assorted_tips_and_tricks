@@ -2,7 +2,33 @@
 
 
 ## Directory
-1. [Converting named R colors to RGB values](#-Converting-named-R-colors-to-RGB-values)
+1. [Making scripts reusable](#-Making-scripts-reusable)
+2. [Converting named R colors to RGB values](#-Converting-named-R-colors-to-RGB-values)
+
+## Making scripts reusable
+You may often find yourself needing to re-create figured from an analysis with parameters slightly altered or using a different dataset (or a subset of the original). When you first conduct an analysis, you might hard-code input and output files in your script. This is fine, but can become cumbersome if you need to constantly change names in the file. The good news is that you can write the code once and re-use it as many timeas as you like without editing the script!
+
+**In R:**<br>
+The following line should appear somewhere near the top of your script (right after you import the required packages for example).
+```R
+args = commandArgs(trailingOnly = TRUE)
+```
+Then, wherever you would normally have a filename in your script, you can replace them with `args[1]`, `args[2]`, and so on. I prefer to use them sequentially in the script. Then, in your shell (.sh) script, you would simply have one line that calls the R script that you want to use and the filenames you would like to be inserted into R script:
+```bash
+Rscript scriptname.R filename1 filename2
+```
+
+**In Python:**<br>
+You will need the following lines at the top of the script (along with other modules you will be importing)
+```python
+import os
+import sys
+```
+The placeholder for the filename is similar to R, but slightly different: `sys.argv[1]`, `sys.argv[2]`, etc. You would feed the filenames into the python exactly the same way that you would feed them into R because both are done using shell scripting.
+```bash
+python scriptname.py filename1 filename2
+```
+
 
 ## Converting named R colors to RGB values
 If you want to figure out the RGB (red, green, blue) value of a named R color such as those found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) or through the `colors()` R function (works in RStudio), you can use the `col2rgb()` function. For example, I used this function so that I could perfectly re-create the colors from the PCA plot in the genetic diversity project to make the map of Northern Wild Rice (NWR) collection sites map in Python.<br>
