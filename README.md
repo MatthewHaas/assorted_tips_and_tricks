@@ -9,7 +9,7 @@
 You may often find yourself needing to re-create figured from an analysis with parameters slightly altered or using a different dataset (or a subset of the original). When you first conduct an analysis, you might hard-code input and output files in your script. This is fine, but can become cumbersome if you need to constantly change names in the file. The good news is that you can write the code once and re-use it as many timeas as you like without editing the script!
 
 **In R:**<br>
-The following line should appear somewhere near the top of your script (right after you import the required packages for example).
+The following line should appear somewhere near the top of your R script (right after you import the required packages for example).
 ```R
 args = commandArgs(trailingOnly = TRUE)
 ```
@@ -19,7 +19,7 @@ Rscript scriptname.R filename1 filename2
 ```
 
 **In Python:**<br>
-You will need the following lines at the top of the script (along with other modules you will be importing)
+You will need the following lines at the top of your python script (along with other modules you will be importing)
 ```python
 import os
 import sys
