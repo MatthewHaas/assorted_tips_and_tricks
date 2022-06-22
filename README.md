@@ -4,6 +4,7 @@
 ## Directory
 1. [Making scripts reusable](#-Making-scripts-reusable)
 2. [Converting named R colors to RGB values](#-Converting-named-R-colors-to-RGB-values)
+3. [Counting the number of SNPs in a VCF file](#-Counting_SNPs_in_a_VCF_file)
 
 ## Making scripts reusable
 You may often find yourself needing to re-create figured from an analysis with parameters slightly altered or using a different dataset (or a subset of the original). When you first conduct an analysis, you might hard-code input and output files in your script. This is fine, but can become cumbersome if you need to constantly change names in the file. The good news is that you can write the code once and re-use it as many timeas as you like without editing the script!
@@ -72,4 +73,9 @@ rgb(205/255, 0/255, 0/255)
 I used the following code! (Only the first color, red3, is shown. To get a different color, you'd need to replace the HEX color code in both places where it occurs in the code below.)
 ```md
 ![ #cd0000](https://via.placeholder.com/15/cd0000/000000?text=+)
+```
+
+## Counting SNPs in a VCF file
+Simply replace `input.vcf` with the name of your VCF file. This method works by counting the number of lines in a VCF file excluding the header lines.
+grep -v "^#" input.vcf | wc -l
 ```
