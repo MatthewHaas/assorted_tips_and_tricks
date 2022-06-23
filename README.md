@@ -109,6 +109,8 @@ Notice how I used _regular expressions_ here. I will break this down character b
 3. The asterisk (`*`) indicates that the _preceding element_ should be matched zero or more times.
 4. The dollar symbol (`$`) indicates the end of the line
 
+Putting all of this together, any strings (patterns) that start with a forward slash (`/`) will be removed from the occurrence of the forward slash to the end of the line. This is also because we left the "text-you-want-to-replace-it-with" blank. You are replacing the defined string with a blank/empty string. Pretty simple/cool, right?
+
 If you are successful, your file should now look like this:
 ```bash
 Sample_0001
