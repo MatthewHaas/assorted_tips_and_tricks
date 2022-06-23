@@ -77,5 +77,6 @@ I used the following code! (Only the first color, red3, is shown. To get a diffe
 
 ## Counting SNPs in a VCF file
 Simply replace `input.vcf` with the name of your VCF file. This method works by counting the number of lines in a VCF file excluding the header lines.
+```bash
 grep -v "^#" input.vcf | wc -l
 ```
