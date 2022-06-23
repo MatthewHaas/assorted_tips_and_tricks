@@ -83,3 +83,38 @@ grep -v "^#" input.vcf | wc -l
 ```
 
 ## Search and replace in `vim`
+If you want to do a quick search and replace in the `vim` editor, you can quickly accomplish your goals with a few quick keystrokes.
+
+The pattern is something like this:
+```bash
+%s/text-you-want-to-replace/text-you-want-to-replace-it-with/g
+```
+
+For example, if I have a text file that looks like this:
+```bash
+Sample_0001/Sample_0001_sorted.bam
+Sample_0002/Sample_0002_sorted.bam
+Sample_0003/Sample_0003_sorted.bam
+Sample_0004/Sample_0004_sorted.bam
+Sample_0005/Sample_0005_sorted.bam
+...
+```
+and I want to strip everything from the forward slash to the end of the line, I can rapidly accomplish that with one line of code:
+```bash
+%s/\/.*$//g
+```
+Notice how I used _regular expressions_ here. I will break this down character by character.
+1. The backslash (`\`) in the fourth position indicates that the forward slash following it should be interpreted literally.
+2. The period (`.`) is a wildcard that matches any character.
+3. The asterisk (`*`) indicates that the _preceding element_ should be matched zero or more times.
+4. The dollar symbol (`$`) indicates the end of the line
+
+If you are successful, your file should now look like this:
+```bash
+Sample_0001
+Sample_0002
+Sample_0003
+Sample_0004
+Sample_0005
+...
+```
