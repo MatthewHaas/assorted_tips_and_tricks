@@ -137,6 +137,8 @@ and
 awk 'FNR%2' july22_fastq_read_count.txt > july22_fastq_read_count_every_other.txt
 ```
 
+In order to visualize the data, I wrote a short R script: [plot_FASTQ_read_count_data.R](count_reads_in_fastq_file/plot_FASTQ_read_count_data.R). This was run on my personal machine, not MSI (which is only really relevant because you tell from the `setwd()` function).
+
 
 The figure will look like this:<br>
 <img src="count_reads_in_fastq_file/Reneth_GBS_data_read_counts.png" width="500">
