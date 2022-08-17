@@ -144,5 +144,5 @@ The figure will look like this:<br>
 <img src="count_reads_in_fastq_file/Reneth_GBS_data_read_counts.png" width="500">
 
 Some helper files that might be handy for this analysis:
-[nov21_fastq_list.txt](count_reads_in_fastq_file/nov21_fastq_list.txt)
-[july21_fastq_list.txt](count_reads_in_fastq_file/july21_fastq_list.txt)
+[nov21_fastq_list.txt](count_reads_in_fastq_file/nov21_fastq_list.txt)<br>
+[july22_fastq_list.txt](count_reads_in_fastq_file/july22_fastq_list.txt)<br>
