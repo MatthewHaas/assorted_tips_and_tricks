@@ -126,3 +126,13 @@ Sample_0005
 Two nearly-identical scripts were used to count the number of reads in each `FASTQ` file.
 
 The number of reads in the November 2021 data release were counted using the [count_reads_per_fastq_file_nov21.sh](count_reads_in_fastq_file/count_reads_per_fastq_file_nov21.sh) and the number of reads in the July 2022 data release were counted using the file [count_reads_per_fastq_file_july22.sh](count_reads_in_fastq_file/count_reads_per_fastq_file_july22.sh). The files are based on the principle that each read in a `FASTQ` file is represented by 4 lines. Therefore, you can count the number of reads in a file by counting the total number of lines in that file and dividing by 4.
+
+We used paired-end sequencing for our GBS analysis so each sample is actually represented by two files (forward reads; R1 and reverse reads R2). While it's useful (and a good idea to do some checking to make sure the numbers are identical for both files, we don't want to keep both files to make plots showing the distribution of reads/sample. For this reason, I used the following `awk` code to remove every other line from the files that resulted from the previous scripts:
+
+```bash
+awk 'FNR%2'  nov21_fastq_read_count.txt > nov21_fastq_read_count_every_other.txt
+```
+and
+```bash
+awk 'FNR%2' july22_fastq_read_count.txt > july22_fastq_read_count_every_other.txt
+```
