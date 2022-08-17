@@ -146,3 +146,5 @@ The figure will look like this:<br>
 Some helper files that might be handy for this analysis:<br>
 [nov21_fastq_list.txt](count_reads_in_fastq_file/nov21_fastq_list.txt)<br>
 [july22_fastq_list.txt](count_reads_in_fastq_file/july22_fastq_list.txt)<br>
+[nov21_fastq_read_count_every_other.txt](count_reads_in_fastq_file/nov21_fastq_read_count_every_other.txt)<br>
+[july22_fastq_read_count_every_other.txt](count_reads_in_fastq_file/july22_fastq_read_count_every_other.txt)<br>
