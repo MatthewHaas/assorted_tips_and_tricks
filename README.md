@@ -123,6 +123,17 @@ Sample_0005
 ```
 
 ## Count reads in a FASTQ file
+The first step in this analysis is to create text files with lists of all FASTQ (sequence) files. You can accomplish that using the following code:
+
+First, for November 2021 data:
+```bash
+ls /home/jkimball/data_delivery/umgc/2021-q4/211108_A00223_0697_BHNY3NDSX2/Kimball_Project_008/*fastq.gz > nov21_fastq_list.txt
+```
+Second, for July 2022 data:
+```bash
+# july 2022 data
+ls /home/jkimball/data_delivery/umgc/2022-q3/220701_A00223_0866_AHVFKKDSX3/Kimball_Project_009/*fastq.gz > july22_fastq_list.txt
+```
 Two nearly-identical scripts were used to count the number of reads in each `FASTQ` file.
 
 The number of reads in the November 2021 data release were counted using the script [count_reads_per_fastq_file_nov21.sh](count_reads_in_fastq_file/count_reads_per_fastq_file_nov21.sh) and the number of reads in the July 2022 data release were counted using the script [count_reads_per_fastq_file_july22.sh](count_reads_in_fastq_file/count_reads_per_fastq_file_july22.sh). The input file for these scripts are [nov21_fastq_list.txt](count_reads_in_fastq_file/nov21_fastq_list.txt) and [july22_fastq_list.txt](count_reads_in_fastq_file/july22_fastq_list.txt), respectively. The files are based on the principle that each read in a `FASTQ` file is represented by 4 lines. Therefore, you can count the number of reads in a file by counting the total number of lines in that file and dividing by 4. The output files of these scripts will be [nov21_fastq_read_count.txt](count_reads_in_fastq_file/nov21_fastq_read_count.txt) and [july22_fastq_read_count.txt](count_reads_in_fastq_file/july22_fastq_read_count.txt).
