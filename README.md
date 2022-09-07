@@ -164,6 +164,46 @@ setwd("~/Documents/wild_rice/plot_read_depth_reneth_gbs_data")
 
 **Note:** Please make sure you start the script with `library(data.table)` because the script requires the [`data.table`](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html) package to be functional.
 
+The first thing the script will do is read in the data:<br>
+```R
+# Read in file size data
+nov21_data <- fread("november_2021_fastq_file_sizes.txt")
+july22_data <- fread("july_2022_fastq_file_sizes.txt")
+
+# Read in read count data
+nov21_read_count <- fread("nov21_fastq_read_count_every_other.txt")
+july22_read_count <- fread("july22_fastq_read_count_every_other.txt")
+```
+
+Then it will assign appropriate names to each data.table's columns:<br>
+```R
+# Set names for file size data.table
+setnames(nov21_data, c("sample_name", "size_bytes"))
+setnames(july22_data, c("sample_name", "size_bytes"))
+
+# Set names for readcount data.table
+setnames(nov21_read_count, "num_reads")
+setnames(july22_read_count, "num_reads")
+```
+Add a new column to the file size data.table so we can plot the file size in megabytes rather than bytes:<br>
+```R
+# Add a new column to file size data.table (currently it's in bytes but we want megabytes)
+nov21_data[, size_mb := size_bytes/1e6]
+july22_data[, size_mb := size_bytes/1e6]
+```
+Reorder file size data.table based on megabytes column:<br>
+```R
+# Order file size data.table by file size (in mb) so we can see the distribution in an orderly fashion
+nov21_data[order(size_mb)]
+july22_data[order(size_mb)]
+```
+Next, we will remove a stray column:<br>
+```R
+# Remove odd/non-existent sample name that only exists because "Analysis" was a sub-directory in the directory where we pulled the file size data from
+nov21_data <- nov21_data[sample_name != "Analysis"]
+july22_data <- july22_data[sample_name != "Analysis"]
+```
+
 This is the part of the script that accomplishes the plotting:<br>
 ```R
 # Plot distribution of read counts
