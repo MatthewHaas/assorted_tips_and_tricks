@@ -159,6 +159,15 @@ awk 'FNR%2' july22_fastq_read_count.txt > july22_fastq_read_count_every_other.tx
 
 In order to visualize the data, I wrote a short R script: [plot_FASTQ_read_count_data.R](count_reads_in_fastq_file/plot_FASTQ_read_count_data.R). This was run on my personal machine, not MSI (which is only really relevant because you tell from the `setwd()` function).
 
+This is the part of the script that accomplishes the plotting:<br>
+```R
+# Plot distribution of read counts
+pdf("Reneth_GBS_data_read_counts.pdf")
+layout(matrix(c(1:2), ncol = 2))
+nov21_read_count[, hist(num_reads/1e6, breaks = 100, xlab = "Number of reads per sample (in millions)", main = "November 2021 data", las = 1)]
+july22_read_count[, hist(num_reads/1e6, breaks = 100, xlab = "Number of reads per sample (in millions)", main = "July 2022 data", las = 1)]
+dev.off()
+```
 
 The figure will look like this:<br>
 <img src="count_reads_in_fastq_file/Reneth_GBS_data_read_counts.png" width="500">
@@ -168,3 +177,16 @@ Some helper files that might be handy for this analysis:<br>
 [july22_fastq_list.txt](count_reads_in_fastq_file/july22_fastq_list.txt)<br>
 [nov21_fastq_read_count_every_other.txt](count_reads_in_fastq_file/nov21_fastq_read_count_every_other.txt)<br>
 [july22_fastq_read_count_every_other.txt](count_reads_in_fastq_file/july22_fastq_read_count_every_other.txt)<br>
+
+You can also create a figure that shows the distribution of file sizes.<br>
+```R
+# Plot distrbution of file sizes
+pdf("Reneth_GBS_data_fastq_file_sizes.pdf")
+layout(matrix(c(1:2), ncol = 2))
+nov21_data[, hist(size_mb, breaks = 100, xlab = "File size (in Mb)", main = "November 2021 data", las = 1)]
+july22_data[, hist(size_mb, breaks = 100, xlab = "File size (in Mb)", main = "July 2022 data", las = 1)]
+dev.off()
+```
+
+That figure will look like this:<br>
+<img src="count_reads_in_fastq_file/Reneth_GBS_data_fastq_file_sizes.png" width="500">
