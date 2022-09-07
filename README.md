@@ -157,7 +157,12 @@ and
 awk 'FNR%2' july22_fastq_read_count.txt > july22_fastq_read_count_every_other.txt
 ```
 
-In order to visualize the data, I wrote a short R script: [plot_FASTQ_read_count_data.R](count_reads_in_fastq_file/plot_FASTQ_read_count_data.R). This was run on my personal machine, not MSI (which is only really relevant because you tell from the `setwd()` function).
+In order to visualize the data, I wrote a short R script: [plot_FASTQ_read_count_data.R](count_reads_in_fastq_file/plot_FASTQ_read_count_data.R). This was run on my personal machine, not MSI (which is only really relevant because you tell from the `setwd()` function).<br>
+```R
+setwd("~/Documents/wild_rice/plot_read_depth_reneth_gbs_data")
+```
+
+**Note:** Please make sure you start the script with `library(data.table)` because the script requires the [`data.table`](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html) package to be functional.
 
 This is the part of the script that accomplishes the plotting:<br>
 ```R
