@@ -7,6 +7,7 @@
 3. [Counting the number of SNPs in a VCF file](#Counting-SNPs-in-a-VCF-file)
 4. [Search and replace in `vim`](#Search-and-replace-in-vim)
 5. [Count reads in a FASTQ file](#Count-reads-in-a-FASTQ-file)
+6. [Modify GFF3 file](#Modify-GFF3-file)
 
 ## Making scripts reusable
 You may often find yourself needing to re-create figured from an analysis with parameters slightly altered or using a different dataset (or a subset of the original). When you first conduct an analysis, you might hard-code input and output files in your script. This is fine, but can become cumbersome if you need to constantly change names in the file. The good news is that you can write the code once and re-use it as many timeas as you like without editing the script!
@@ -235,3 +236,6 @@ dev.off()
 
 That figure will look like this:<br>
 <img src="count_reads_in_fastq_file/Reneth_GBS_data_fastq_file_sizes.png" width="500">
+
+## Modify GFF3 file
+I used the script [update_gff3_chromosome_names.sh](update_gff3_chromosome_names.sh) to update the chromosome names in the GFF3 file.
